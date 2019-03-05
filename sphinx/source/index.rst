@@ -19,6 +19,7 @@ Python for SAS Programmers
 
    import_data
    keep_drop_rename
+   where
    set_merge
 
 
@@ -26,6 +27,7 @@ Python for SAS Programmers
    :maxdepth: 2
    :caption: Procedures:
 
+   sort
    freq
    means
    transpose
