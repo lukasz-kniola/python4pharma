@@ -9,7 +9,7 @@ SAS:
 .. code-block:: sas
 
     data class;
-      set sashelp.CLASS(keep=NAME SEX AGE);
+      set sashelp.class(keep=NAME SEX AGE);
     run;
 
 Python:
@@ -25,7 +25,7 @@ SAS:
 .. code-block:: sas
 
     data class;
-      set sashelp.CLASS(drop=HEIGHT WEIGHT);
+      set sashelp.class(drop=HEIGHT WEIGHT);
     run;
 
 Python:
@@ -46,7 +46,7 @@ SAS:
 .. code-block:: sas
 
     data class;
-      set sashelp.CLASS(rename=(SEX=GENDER));
+      set sashelp.class(rename=(SEX=GENDER));
     run;
 
 Python:
