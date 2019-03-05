@@ -170,11 +170,43 @@
             
   <div class="section" id="reading-and-writing-data-files">
 <h1>Reading and Writing Data Files<a class="headerlink" href="#reading-and-writing-data-files" title="Permalink to this headline">¶</a></h1>
+<p>Pandas can read from and write to a number of formats. This includes, but is not limited to CSV, XPT, SAS7BDAT, Excel, JSON, HTML.</p>
 <div class="section" id="importing-data">
 <h2>Importing Data<a class="headerlink" href="#importing-data" title="Permalink to this headline">¶</a></h2>
+<p>To read data into a dataframe:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">dataset1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;file.csv&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">dataset2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sas</span><span class="p">(</span><span class="s2">&quot;file.xpt&quot;</span><span class="p">)</span>
+<span class="n">dataset3</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sas</span><span class="p">(</span><span class="s2">&quot;file.sas7bdat&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition attention">
+<p class="first admonition-title">Attention</p>
+<p class="last">When SAS file’s encoding is different than the system, data will be read in as bytes, which makes is hard to process. Use <code class="docutils literal notranslate"><span class="pre">encoding</span></code> parameter to avoid this problem.</p>
+</div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">dataset2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sas</span><span class="p">(</span><span class="s2">&quot;file.xpt&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;utf-8&quot;</span><span class="p">)</span>
+<span class="n">dataset3</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sas</span><span class="p">(</span><span class="s2">&quot;file.sas7bdat&quot;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">&quot;ISO-8859-1&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="exporting-data">
 <h2>Exporting Data<a class="headerlink" href="#exporting-data" title="Permalink to this headline">¶</a></h2>
+<p>Pandas does not support saving data as SAS files, although it is possible to save as XPT, using (<a class="reference external" href="https://pypi.org/project/xport/">xport</a>) module.</p>
+<p>Dataframes can be saved as CSV files:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">dataset1</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&quot;new_file.csv&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Another format, native to Python, is pickle:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">dataset1</span><span class="o">.</span><span class="n">to_pickle</span><span class="p">(</span><span class="s2">&quot;new_file.pkl&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Feather is an R-compatible format:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">dataset1</span><span class="o">.</span><span class="n">to_pickle</span><span class="p">(</span><span class="s2">&quot;new_file.feather&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Each format has some limitations, so depending on the project, different formats may be used.
+For more details see Pandas documentation: (<a class="reference external" href="https://pandas.pydata.org/pandas-docs/stable/user_guide/io.html#io-read-csv-table">IO Tools (Text, CSV, HDF5, …)</a>)</p>
 </div>
 </div>
 

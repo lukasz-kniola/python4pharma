@@ -173,12 +173,50 @@
 <h1>Keep, Drop, Rename Variables<a class="headerlink" href="#keep-drop-rename-variables" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="keep">
 <h2>Keep<a class="headerlink" href="#keep" title="Permalink to this headline">¶</a></h2>
+<p>SAS:</p>
+<div class="highlight-sas notranslate"><div class="highlight"><pre><span></span><span class="kr">data </span>class;
+  <span class="k">set</span> sashelp<span class="m">.</span>CLASS(<span class="k">keep</span>=NAME SEX AGE)<span class="kr">;</span>
+<span class="kr">run;</span>
+</pre></div>
+</div>
+<p>Python:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">new_class_df</span> <span class="o">=</span> <span class="n">class_df</span><span class="p">[[</span><span class="s1">&#39;NAME&#39;</span><span class="p">,</span> <span class="s1">&#39;SEX&#39;</span><span class="p">,</span> <span class="s1">&#39;AGE&#39;</span><span class="p">]]</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="drop">
 <h2>Drop<a class="headerlink" href="#drop" title="Permalink to this headline">¶</a></h2>
+<p>SAS:</p>
+<div class="highlight-sas notranslate"><div class="highlight"><pre><span></span><span class="kr">data </span>class;
+  <span class="k">set</span> sashelp<span class="m">.</span>CLASS(<span class="k">drop</span>=HEIGHT WEIGHT)<span class="kr">;</span>
+<span class="kr">run;</span>
+</pre></div>
+</div>
+<p>Python:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># copy and drop</span>
+<span class="n">new_class_df</span> <span class="o">=</span> <span class="n">class_df</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;HEIGHT&#39;</span><span class="p">,</span> <span class="s1">&#39;WEIGHT&#39;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># drop in place</span>
+<span class="n">class_df</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;HEIGHT&#39;</span><span class="p">,</span> <span class="s1">&#39;WEIGHT&#39;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="rename">
 <h2>Rename<a class="headerlink" href="#rename" title="Permalink to this headline">¶</a></h2>
+<p>SAS:</p>
+<div class="highlight-sas notranslate"><div class="highlight"><pre><span></span><span class="kr">data </span>class;
+  <span class="k">set</span> sashelp<span class="m">.</span>CLASS(<span class="k">rename</span>=(SEX=GENDER))<span class="kr">;</span>
+<span class="kr">run;</span>
+</pre></div>
+</div>
+<p>Python:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># copy and rename</span>
+<span class="n">new_class_df</span> <span class="o">=</span> <span class="n">class_df</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;SEX&#39;</span><span class="p">:</span> <span class="s1">&#39;GENDER&#39;</span><span class="p">})</span>
+
+<span class="c1"># rename in place</span>
+<span class="n">class_df</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;SEX&#39;</span><span class="p">:</span> <span class="s1">&#39;GENDER&#39;</span><span class="p">},</span> <span class="n">inplace</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+</pre></div>
+</div>
 </div>
 </div>
 
