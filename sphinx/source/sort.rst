@@ -51,4 +51,4 @@ Python:
 .. code-block:: python
 
     ages = class_df.sort_values(['AGE','HEIGHT','WEIGHT').drop_duplicates(subset=(["AGE"]), keep='first')
-    # use keep='last' to keep last record, or False to drop all duplicate records
+    # use keep='last' to keep the last record, or False to drop all non-unique records
