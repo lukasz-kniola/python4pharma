@@ -5,18 +5,31 @@ Set and Merge Datasets
 Set
 ===
 
+SAS:
+
+.. code-block:: sas
+    
+    data new;
+      set one two;
+    run;
+
+Python:
+
+.. code-block:: python
+
+    pd.concat([one, two])
+    
+    one.append(two)
 
 Merge
 =====
 
-Keep
-====
 SAS:
 
 .. code-block:: sas
 
-    data new_class;
-      merge sashelp.class(in=i1) class_detail(in=i2);
+    data new;
+      merge one(in=i1) two(in=i2);
       by name;
       * inner : if i1 and i2;
       * left  : if i1;
@@ -28,11 +41,11 @@ Python:
 
 .. code-block:: python
 
-    new_class_df  = pd.merge(class_df[["USUBJID", "AGE"]], class_detail, how='left', on="NAME")
+    new  = pd.merge(one[["NAME", "AGE"]], two, how='left', on="NAME")
     # how = 'inner', 'left', 'right', 'outer'
     
-    new_class_df  = pd.merge(class_df, class_detail, how='inner', left_on="NAME", right_on="FirstName")
+    new  = pd.merge(one, two, how='inner', left_on="NAME", right_on="FirstName")
     
-    new_class_df  = class_df.merge(class_detail, how='left', on="NAME")
+    new  = one.merge(two, how='left', on="NAME")
     
     
