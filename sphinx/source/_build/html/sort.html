@@ -92,6 +92,7 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="import_data.html">Reading and Writing Data Files</a></li>
 <li class="toctree-l1"><a class="reference internal" href="keep_drop_rename.html">Keep, Drop, Rename Variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="where.html">Subsetting Datasets</a></li>
 <li class="toctree-l1"><a class="reference internal" href="set_merge.html">Set and Merge Datasets</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Procedures:</span></p>
@@ -167,6 +168,16 @@
             
   <div class="section" id="proc-sort">
 <h1>Proc Sort<a class="headerlink" href="#proc-sort" title="Permalink to this headline">¶</a></h1>
+<p>SAS:</p>
+<div class="highlight-sas notranslate"><div class="highlight"><pre><span></span><span class="kr">proc sort </span>data=sashelp<span class="m">.</span>class <span class="k">out</span>=class;
+  <span class="k">by</span> name age<span class="kr">;</span>
+<span class="kr">run;</span>
+</pre></div>
+</div>
+<p>Python:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">class_df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">([</span><span class="s1">&#39;NAME&#39;</span><span class="p">,</span> <span class="s1">&#39;AGE&#39;</span><span class="p">],</span> <span class="n">inplace</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+</pre></div>
+</div>
 </div>
 
 

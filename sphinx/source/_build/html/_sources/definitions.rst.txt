@@ -10,3 +10,25 @@ Series
 
 Dataframe
 =============
+
+Many (but not all) operations on dataframes will return a new dataframe transformed according to the function used, but not affect the original dataframe.
+To apply the method to the original dataframe, use :literal:`inplace=True` option.
+
+For example:
+
+.. code-block:: python
+
+    df.sort_values("NAME")
+
+will return a new dataframe (in this case not assigned to any var).
+To make the sort permanent we need to assign the returning daraframe back to the same name, or use the :literal:`inplace` option:
+
+.. code-block:: python
+
+    df = df.sort_values("NAME")
+
+or
+
+.. code-block:: python
+
+    df.sort_values("NAME", inplace=True)

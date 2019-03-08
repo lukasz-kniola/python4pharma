@@ -2,25 +2,8 @@
 Proc Sort
 *********
 
-<<<<<<< HEAD
-SAS:
-
-.. code-block:: sas
-
-    proc sort data=sashelp.class out=class;
-      by name age;
-    run;
-
-Python:
-
-.. code-block:: python
-
-    class_df.sort_values(['NAME', 'AGE'], inplace=True)
-
-=======
 Standard Sort
 =============
->>>>>>> 3625395a422fe27974f3b34a20fb040a003da44d
 
 SAS:
 
@@ -35,6 +18,8 @@ Python:
 .. code-block:: python
 
     new_class_df = class_df.sort_values('AGE')
+
+    class_df.sort_values('AGE', inplace=True)
 
 Sort nodupkey
 =============
